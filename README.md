@@ -1,2 +1,5 @@
 # TW-Plugins
-TiddlyWiki extensions
+This project consists of three plugins for TiddlyWiki:
+- RTEditor
+- TiddlyKanban
+- GroupedTable
