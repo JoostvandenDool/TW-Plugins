@@ -1,0 +1,31 @@
+tags: $:/tags/Macro
+title: $:/plugins/DoolPlex/TiddlyKanban/TKMacro
+type: text/vnd.tiddlywiki
+
+\define set-value(field, value)
+<$action-setfield $tiddler=<<actionTiddler>> $field="$field$" $value=$value$/>
+\end
+
+\define render-card(tiddler)
+<$draggable tiddler="$tiddler$" >
+<li class="kanban-card">
+$tiddler$
+</li>
+</$draggable>
+\end
+
+
+\define KanbanBoard(columns, query, actionfield)
+<div class="kanban-board">
+<$list filter="$columns$">
+<$droppable actions=<<set-value field:$actionfield$ value:{{!!title}}>> >
+<ol class="kanban-lane">
+<h2><$view field="title" /></h2>
+<$list filter="[$query$field:$actionfield${!!title}]">
+<$macrocall $name="render-card" tiddler=<<currentTiddler>> />
+</$list>
+<br /><br />
+</ol></$droppable>
+</$list>
+</div>
+\end

@@ -1,0 +1,6 @@
+<!-- tags: $:/tags/ViewTemplate -->
+<!-- title: $:/plugins/DoolPlex/RTEditor/RTViewTemplate -->
+
+<$list filter="[all[current]tag[Note]]">
+   <$rteditor/>
+</$list>

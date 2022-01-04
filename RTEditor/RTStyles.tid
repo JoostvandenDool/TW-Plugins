@@ -1,0 +1,28 @@
+/*  tags: $:/tags/Stylesheet
+    title: $:/plugins/DoolPlex/RTEditor/RTStyles */
+
+[data-tags*="Note"] div.tc-tiddler-body {
+    display:none;
+}
+
+.intLink { cursor: pointer; }
+
+img.intLink { border: 0; }
+
+#toolBar1 select { font-size:10px; }
+
+div.RTEBox {
+  width: 100%;
+  height: 15em;
+  border: 1px #000000 solid;
+  padding: 12px;
+  overflow: scroll;
+}
+
+#textBox #sourceText {
+  padding: 0;
+  margin: 0;
+  min-width: 498px;
+  min-height: 200px;
+}
+

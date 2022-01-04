@@ -1,0 +1,60 @@
+[
+  {
+    "text": "[[Buy groceries]]<div><br></div><div>Shopping list:</div><div><ul><li>milk</li><li>sugar</li><li>fruit</li><ul><li>bananas</li><li>Apples</li></ul><li><br></li></ul></div>",
+    "title": "2022 / 01 / 04 / 09:25:29 / Grocery List",
+    "tags": "Note"
+  },
+  {
+    "text": "[[Cook Dinner]]<div><br></div><div><ul><li>preparation</li><ul><li>step 1</li><li>Step 2</li></ul><li>Cooking</li><ul><li>Step 3</li><li>Step 4</li></ul></ul></div>",
+    "title": "2022 / 01 / 04 / 09:26:26 / Recipe",
+    "tags": "Note"
+  },
+  {
+    "text": "",
+    "tags": "Task",
+    "title": "Buy groceries",
+    "Owner": "Dad",
+    "Status": "Done"
+  },
+  {
+    "text": "",
+    "tags": "Task",
+    "title": "Cook Dinner",
+    "Owner": "Mom",
+    "Status": "Working"
+  },
+  {
+    "text": "",
+    "tags": "Task",
+    "title": "Dishwashing",
+    "Owner": "Dad",
+    "Status": "To Do"
+  },
+  {
+    "text": "!! Kanban Owner Overview\n\n<<KanbanBoard columns:\"[each[Owner]tag[Task]sort[Owner]] :map[{!!Owner}]\" query:\"tag[Task]\" actionfield:\"Owner\">>\n",
+    "title": "Owner Board"
+  },
+  {
+    "text": "",
+    "tags": "Task",
+    "title": "Set the table",
+    "Owner": "Child",
+    "Status": "Working"
+  },
+  {
+    "text": "!! Kanban Status Overview\n\n<<KanbanBoard columns:\"[[To Do]] [[Working]] [[Done]]\" query:\"tag[Task]\" actionfield:\"Status\">>\n",
+    "title": "Status Board"
+  },
+  {
+    "text": "<br />\n<table style=\"border: none; width: 100%; \"><tr><td>\nGroup: \n<$select field=\"groupfield\">\n<option value=\"Status\">by Status</option>\n<option value=\"Owner\">by Owner</option>\n</$select>\n</td><td>\nFilter: \n<$select field=\"filterfield\">\n<option value=\"field:Status[Done]\">Done</option>\n<option value=\"\">All</option>\n</$select>\n</td></tr></table>\n<br /><br />\n\n\n!!Task Overview\n<$macrocall $name=\"groupedtable\" tag=\"Task\" groupfield={{!!groupfield}} fieldlist=\"title,Status,Owner\" filtercriteria={{!!filterfield}} />\n<br /><br />\n",
+    "tags": "",
+    "title": "Task Overview",
+    "groupfield": "Owner",
+    "filterfield": ""
+  },
+  {
+    "text": "The following tiddlers demonstrate features of the plugin:\n\n* [[Task Overview]] shows the GroupedTable in action\n* [[Status Board]] shows the TiddlyKanban in action\n* [[Owner Board]] is another example of TiddlyKanban\n* [[2022 / 01 / 04 / 09:25:29 / Grocery List]] or [[2022 / 01 / 04 / 09:26:26 / Recipe]] demonstrates the RTEditor in view mode",
+    "tags": "",
+    "title": "Start"
+  }
+]

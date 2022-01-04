@@ -1,0 +1,27 @@
+tags: $:/tags/Stylesheet
+title: $:/plugins/DoolPlex/TiddlyKanban/TKStyles
+type: text/vnd.tiddlywiki
+
+ .kanban-board {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: stretch;
+            }
+
+            ol.kanban-lane {
+                flex: 1;
+                background-color: #d3d3d3;
+                color: #000000;
+                margin: 2px 5px 2px 5px;
+                padding: 0.6rem;
+            }
+            
+            li.kanban-card {
+                list-style: none;
+                background-color: #ffffff;
+                color: #000000;
+                margin: 2px 2px 2px 2px;
+                padding: 5px 5px 5px 5px;
+                border: 0.1rem solid black;
+            }

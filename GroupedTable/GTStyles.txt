@@ -1,0 +1,19 @@
+table {
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+.gt-groupheader {
+    background-color: #525252;
+    font-weight: bold;
+}
+
+
+th.asc2::after { 
+    content: " ▲";
+}
+
+th.desc2::after { 
+    content: " ▼";
+}
