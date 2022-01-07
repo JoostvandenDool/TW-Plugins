@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/Doolplex/GroupedTable/GroupedTable.js
+title: $:/plugins/DoolPlex/GroupedTable/GroupedTable.js
 type: application/javascript
 module-type: macro
 A TiddlyWiki 5 macro which creates a table with rowgrouping
@@ -26,8 +26,8 @@ A TiddlyWiki 5 macro which creates a table with rowgrouping
         try {
             var fields = fieldlist.split(",");
             var nrofFields = fields.length;
-            var filter = "[each[" + groupfield + "]tag[" + tag + "]sort[" + groupfield + "]" + filtercriteria + "]";
-            var subfilter = "[field:" + groupfield + "{!!" + groupfield + "}sort[title]" + filtercriteria + "]";
+            var filter = "[tag[" + tag + "]" + filtercriteria + "each[" + groupfield + "]sort[" + groupfield + "]]";
+            var subfilter = "[tag[" + tag + "]" + filtercriteria + "field:" + groupfield + "{!!" + groupfield + "}sort[title]]";
 
             var resultText = "";
 
@@ -35,9 +35,16 @@ A TiddlyWiki 5 macro which creates a table with rowgrouping
             resultText += "<table><tr class='gt-headerrow'>";
 
             for (var i = 0; i < nrofFields; i++)
-                resultText += "<th align=left>" + fields[i] + "</th>"; 
+            {
+                if (fields[i][0] == "*" )
+                    resultText += "<th align=left>" + fields[i].slice(-(fields[i].length-1))  + "</th>"; 
+                else
+                    resultText += "<th align=left>" + fields[i] + "</th>"; 
+            }
 
             resultText += "</tr>"; 
+            console.log("Header written");
+
 
             if (groupfield == "") {
                 filter = "[tag[" + tag + "]sort[" + groupfield + "]" + filtercriteria + "]";
@@ -48,9 +55,12 @@ A TiddlyWiki 5 macro which creates a table with rowgrouping
                 for (var fi = 0; fi < nrofFields; fi++) {
                     if (fi == 0) 
                         resultText += "<td><$link to[[!!title]]><$view field=" + fields[fi] + " /></$link></td>";
+                    else if (fields[fi][0] == "*" )
+                        resultText += "<td><$link to={{!!" + fields[fi].slice(-(fields[fi].length-1)) + "}}><$view field=" + fields[fi].slice(-(fields[fi].length-1)) + " /></$link></td>";
                     else
                         resultText += "<td><$view field=" + fields[fi] + " /></td>";
                 }
+
                 resultText += "</tr>";
                 resultText += "</$list>";
             } else {
@@ -62,6 +72,8 @@ A TiddlyWiki 5 macro which creates a table with rowgrouping
                 for (var fi = 0; fi < nrofFields; fi++) {
                     if (fi == 0) 
                         resultText += "<td><$link to[[!!title]]><$view field=" + fields[fi] + " /></$link></td>";
+                    else if (fields[fi][0] == "*" )
+                        resultText += "<td><$link to={{!!" + fields[fi].slice(-(fields[fi].length-1)) + "}}><$view field=" + fields[fi].slice(-(fields[fi].length-1)) + " /></$link></td>";
                     else
                         resultText += "<td><$view field=" + fields[fi] + " /></td>";
                 }
